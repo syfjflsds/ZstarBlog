@@ -26,7 +26,14 @@ var BlogApp = function()
     this.setupRouter = function()
     {
         this.server.get('/', function(req, res){
+            res.redirect('/blog');
+            //res.render('index', {title:'Zstar\'s blog'});
+        })
+        this.server.get('/blog', function(req, res){
             res.render('index', {title:'Zstar\'s blog'});
+        })
+        this.server.get('*', function(req, res){
+            res.render('error');
         })
     }
 
